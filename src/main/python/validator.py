@@ -53,7 +53,7 @@ class Validator:
         minimum = self.minimumRow if self.sender.text() == "" else int(self.sender.text())
         validator = QIntValidator(minimum, self.maximumRow)
         result = (validator.validate(self.widget.text(), 0))
-        message = "Не допустимый диапазон строк!"
+        message = "Недопустимый диапазон строк!"
         if self.buttonSwitcher(result[0], message) != QValidator.Acceptable:
             self.result["row"] = True
             return result[0]
@@ -66,7 +66,7 @@ class Validator:
             else self.letterIndexToIntValue(self.sender.text())
         validator = QIntValidator(minimum, self.letterIndexToIntValue(self.maximumCol))
         result = validator.validate(str(self.letterIndexToIntValue(self.widget.text())), 0)
-        message = "Не допустимый диапазон столбцов!"
+        message = "Недопустимый диапазон столбцов!"
         if self.buttonSwitcher(result[0], message) != QValidator.Acceptable:
             self.result["col"] = True
             return result[0]
